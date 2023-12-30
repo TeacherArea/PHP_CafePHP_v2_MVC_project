@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><!--
+    This page is inspired by a template from w3schools: https://www.w3schools.com/w3css/tryw3css_templates_cafe.htm
+    The template is slightly modified for educational purposes, as a starter for a PHP server project
+--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Café PHP</title>
+    
+    <meta name="keywords" content="PHP, HTML, CSS, Bootstrap, JavaScript">
+    <meta name="description" content="A fictitious cafe for the purpose of teaching basic web server programming.">
+    <meta name="author" content="https://github.com/TeacherArea">
+    <link rel="icon" href="http://127.0.0.1:5500/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./Café PHP_files/css">
+    <link href="./Café PHP_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Café PHP_files/style.css">
+</head>
+
+<body>
+
+    <!-- Links (sit on top) -->
+    <div class="init-top">
+        <div class="init-row init-padding init-black">
+            <div class="init-col s2">
+                <a href="http://127.0.0.1:5500/index.html" class="init-button init-block init-black">HOME</a>
+            </div>
+            <div class="init-col s2">
+                <a href="http://127.0.0.1:5500/index.html#menu" class="init-button init-block init-black">MENU</a>
+            </div>
+            <div class="init-col s2">
+                <a href="http://127.0.0.1:5500/shop.html" class="init-button init-block init-black">SHOP</a>
+            </div>
+            <div class="init-col s2">
+                <a href="http://127.0.0.1:5500/blog.html" class="init-button init-block init-black">BLOG</a>
+            </div>
+            <div class="init-col s2">
+                <a href="http://127.0.0.1:5500/index.html#about" class="init-button init-block init-black">ABOUT</a>
+            </div>
+            <div class="init-col s2">
+                <a href="http://127.0.0.1:5500/index.html#where" class="init-button init-block init-black">CONTACT</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header with image -->
+    <header class="bgimg init-display-container init-grayscale-min" id="home">
+        <div class="init-display-bottomleft init-center init-padding-large init-hide-small">
+            <span class="init-tag">Open from 6am to 5pm</span>
+        </div>
+        <div class="init-display-middle init-center">
+            <span class="init-text-white" style="font-size:90px">Cafe PHP</span>
+        </div>
+        <div class="init-display-bottomright init-center init-padding-large">
+            <span class="init-text-white">15 Adr street, 5015</span>
+        </div>
+    </header>
+
+    <!-- Add a background color and large text to the whole page -->
+    <div class="init-sand init-grayscale init-large">
+
+        <!-- About Container -->
+        <div class="init-container" id="about">
+            <div class="init-content" style="max-width:700px">
+                <h5 class="init-center init-padding-64"><span class="init-tag init-wide">ABOUT THE CAFE</span></h5>
+                <p>The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>In addition to our full espresso and brew bar menu, we serve fresh made-to-order breakfast and lunch
+                    sandwiches, as well as a selection of sides and salads and other good stuff.</p>
+                <div class="init-panel init-leftbar init-light-grey">
+                    <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is
+                            the new sweet.</i></p>
+                    <p>Chef, Coffeeist and Owner: Liam Brown</p>
+                </div>
+                <img src="./Café PHP_files/coffeeshop.jpg" style="width:100%;max-width:1000px" class="init-margin-top">
+                <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p>
+                <p><strong>Address:</strong> 15 Adr street, 5015, NY</p>
+            </div>
+        </div>
+
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Accordion Item #1
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Accordion Item #2
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Accordion Item #3
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- Menu Container -->
+        <div class="init-container" id="menu">
+            <div class="init-content" style="max-width:700px">
+
+                <h5 class="init-center init-padding-48"><span class="init-tag init-wide">THE MENU</span></h5>
+
+                <div class="init-row init-center init-card init-padding">
+                    <a href="javascript:void(0)" onclick="openMenu(event, &#39;Eat&#39;);" id="myLink">
+                        <div class="init-col s6 tablink init-dark-grey">Eat</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="openMenu(event, &#39;Drinks&#39;);">
+                        <div class="init-col s6 tablink">Drink</div>
+                    </a>
+                </div>
+
+                <div id="Eat" class="init-container menu init-padding-48 init-card" style="display: block;">
+                    <h5>Bread Basket</h5>
+                    <p class="init-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
+
+                    <h5>Honey Almond Granola with Fruits</h5>
+                    <p class="init-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p>
+                    <br>
+
+                    <h5>Belgian Waffle</h5>
+                    <p class="init-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
+
+                    <h5>Scrambled eggs</h5>
+                    <p class="init-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p>
+                    <br>
+
+                    <h5>Blueberry Pancakes</h5>
+                    <p class="init-text-grey">With syrup, butter and lots of berries 8.50</p>
+                </div>
+
+                <div id="Drinks" class="init-container menu init-padding-48 init-card" style="display: none;">
+                    <h5>Coffee</h5>
+                    <p class="init-text-grey">Regular coffee 2.50</p><br>
+
+                    <h5>Chocolato</h5>
+                    <p class="init-text-grey">Chocolate espresso with milk 4.50</p><br>
+
+                    <h5>Corretto</h5>
+                    <p class="init-text-grey">Whiskey and coffee 5.00</p><br>
+
+                    <h5>Iced tea</h5>
+                    <p class="init-text-grey">Hot tea, except not hot 3.00</p><br>
+
+                    <h5>Soda</h5>
+                    <p class="init-text-grey">Coke, Sprite, Fanta, etc. 2.50</p>
+                </div>
+                <img src="./Café PHP_files/coffee-and-pie.jpg" style="width:100%;max-width:1000px;margin-top:32px;">
+            </div>
+        </div>
+
+        <!-- Contact/Area Container -->
+        <div class="init-container" id="where" style="padding-bottom:32px;">
+            <div class="init-content" style="max-width:700px">
+                <h5 class="init-center init-padding-48"><span class="init-tag init-wide">WHERE TO FIND US</span></h5>
+                <p>Find us at some address at some place.</p>
+                <img src="./Café PHP_files/map.jpg" class="init-image" style="width:100%">
+                <p><span class="init-tag">FYI!</span> We offer full-service catering for any event, large or small. We
+                    understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both
+                    look and taste.</p>
+                <p><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
+                <form action="http://127.0.0.1:5500/index.html" target="_blank">
+                    <p><input class="init-input init-padding-16 init-border" type="text" placeholder="Name" required="" name="Name"></p>
+                    <p><input class="init-input init-padding-16 init-border" type="number" placeholder="How many people" required="" name="People"></p>
+                    <p><input class="init-input init-padding-16 init-border" type="datetime-local" placeholder="Date and time" required="" name="date" value="2020-11-16T20:00"></p>
+                    <p><input class="init-input init-padding-16 init-border" type="text" placeholder="Message \ Special requirements" required="" name="Message"></p>
+                    <p><button class="init-button init-black" type="submit">SEND MESSAGE</button></p>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="init-center init-light-grey init-padding-48 init-large">
+        <p>Powered by <a href="https://www.initschools.com/initcss/default.asp" title="init.CSS" target="_blank" class="init-hover-text-green">www.cafe-php.com</a></p>
+    </footer>
+
+    <script src="./Café PHP_files/script.js.ladda ned"></script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
