@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<!--
+    This page is inspired by a template from w3schools: https://www.w3schools.com/w3css/tryw3css_templates_cafe.htm
+    The template is slightly modified for educational purposes, as a starter for a PHP server project
+-->
+
+<head>
+    <title>Café PHP | shop</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="PHP, HTML, CSS, Bootstrap, JavaScript">
+    <meta name="description" content="A fictitious cafe for the purpose of teaching basic web server programming.">
+    <meta name="author" content="https://github.com/TeacherArea">
+    <link rel="icon" href="img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar bg-dark fixed-top navbar-expand-sm bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Cafe PHP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav w-100 justify-content-between">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#menu">MENU</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">SHOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">BLOG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#where">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header with image -->
+    <header class="bgimg-small init-display-container init-grayscale-min" id="home">
+        <div class="init-display-bottomleft init-center init-padding-large init-hide-small">
+            <span class="init-tag">Open from 6am to 5pm</span>
+        </div>
+        <div class="init-display-middle init-center">
+            <span class="init-text-white init-logo-text-small">Cafe shop</span>
+        </div>
+        <div class="init-display-bottomright init-center init-padding-large">
+            <span class="init-text-white">15 Adr street, 5015</span>
+        </div>
+    </header>
+
+    <!-- Add a background color and large text to the whole page -->
+    <div class="init-sand init-grayscale init-large">
+
+        <!-- Shop Container -->
+        <div class="init-container">
+            <h5 class="init-center init-padding-64"><span class="init-tag init-wide">CAFE PHP SHOP</span></h5>
+            <div class="init-content" id="init-shop-container">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="init-center init-light-grey init-padding-48 init-large">
+            <p>Powered by <a href="https://www.initschools.com/initcss/default.asp" title="init.CSS" target="_blank"
+                    class="init-hover-text-green">www.cafe-php.com</a></p>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
