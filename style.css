@@ -3,14 +3,14 @@
 .bgimg {
   background-position: center;
   background-size: cover;
-  background-image: url(/img/coffeehouse.jpg);
+  background-image: url(img/coffeehouse.jpg);
   min-height: 75%;
 }
 
 .bgimg-small {
   background-position: center;
   background-size: cover;
-  background-image: url(/img/coffeehouse-small.jpg);
+  background-image: url(img/coffeehouse-small.jpg);
   min-height: 24%;
 }
 .menu {
