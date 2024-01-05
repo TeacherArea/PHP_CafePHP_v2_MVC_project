@@ -20,3 +20,6 @@ Projektet är avsett att användas som en del av en kurs i Webbserverprogrammeri
 
 Detta projekt är endast avsett för utbildningsändamål och får inte användas i kommersiellt syfte. All kod är tillgänglig under MIT-licensen, vilket tillåter modifiering och distribution för privat och utbildningsmässigt bruk, förutsatt att licensinformationen bibehålls.
 
+## Dokumentation
+
+Projektets förutsättningar och dokumentation finns här på [GitHub Wiki](https://github.com/TeacherArea/PHP_CafePHP_v2_MVC_project/wiki)
