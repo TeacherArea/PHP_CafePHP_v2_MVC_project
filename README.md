@@ -24,7 +24,7 @@ Detta projekt är endast avsett för utbildningsändamål och får inte använda
 
 Projektets förutsättningar och dokumentation finns här på [GitHub Wiki](https://github.com/TeacherArea/PHP_CafePHP_v2_MVC_project/wiki)
 
-För varje delmoment av projektet finns en motsvarande branch
+För varje delmoment av projektet finns en motsvarande branch, länkad till under relevant ställe i wikin.
 1. main
 2. frontend
 3. architecture
