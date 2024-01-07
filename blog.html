@@ -17,6 +17,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.tiny.cloud/1/n2foggimtz8mxzay5lakmbv9a51nnpnlh4e5cvl1iudzoaru/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            tinymce.init({
+                selector: 'textarea.init-textarea'
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -83,16 +92,21 @@
                         <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <form action="" target="_blank">
-                                    <p><input class="init-input init-padding-16 init-border" type="text"
+                                    <p><input aria-label="Create account: Lirstname"
+                                            class="init-input init-padding-16 init-border" type="text"
                                             placeholder="First name" required name="user-firstname"></p>
-                                    <p><input class="init-input init-padding-16 init-border" type="text"
+                                    <p><input aria-label="Create account: Lastname"
+                                            class="init-input init-padding-16 init-border" type="text"
                                             placeholder="Last name" required name="user-lastname"></p>
                                     <p><input class="init-input init-padding-16 init-border" type="text"
-                                            placeholder="Password" required name="user-password"></p>
+                                            aria-label="Create account: Password" placeholder="Password" required
+                                            name="user-password"></p>
                                     <p><input class="init-input init-padding-16 init-border" type="email"
-                                            placeholder="Mail" required name="user-mail"></p>
+                                            aria-label="Create account: Mail" Create account placeholder="Mail" required
+                                            name="user-mail"></p>
                                     <p><input class="init-input init-padding-16 init-border" type="text"
-                                            placeholder="Webbsite (optional)" name="user-webb"></p>
+                                            aria-label="Create account: Website" placeholder="Website (optional)"
+                                            name="user-webb"></p>
                                     <div class="form-check mb-4">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
                                             id="flexRadioDefault1">
@@ -108,30 +122,43 @@
                 </div>
                 <p class="mt-4"><strong>Sign in</strong> to comment/blog</p>
                 <form action="" target="_blank">
-                    <p><input class="init-input init-padding-16 init-border" type="email" placeholder="Username (email)" required
-                            name="user-mail"></p>
+                    <p><input class="init-input init-padding-16 init-border" aria-label="Sign in name" type="email"
+                            placeholder="Username (email)" required name="user-mail"></p>
                     <p><input class="init-input init-padding-16 init-border" type="password" placeholder="Password"
-                            required name="user-password"></p>
+                            aria-label="Sign in password" name="user-password"></p>
                     <p><button class="init-button init-black" type="submit">SIGN IN</button></p>
                 </form>
                 <h2 class="init-center init-padding-48">
-                    <span class="init-tag init-wide">CAFE PHP BLOG</span></h2>
+                    <span class="init-tag init-wide">CAFE PHP BLOG</span>
+                </h2>
+                <h3>Post a message</h3>
+                <form action="" target="_blank">
+                    <p><input class="init-input init-padding-16 init-border" aria-label="Post a blog heading"
+                            type="text" placeholder="A heading" required name="blog-heading"></p>
 
-                <div id="init-blog-container">
-                    Its empty here ...
+                    <p><textarea class="init-input init-padding-16 init-border init-textarea"
+                            placeholder="Your blog post" aria-label="Post a blog message"
+                            name="blog-message"></textarea></p>
+                    <p><button class="init-button init-black" type="submit">POST</button></p>
+                </form>
+                <div class="init-container" id="about">
+                    <div class="init-content">
+                        <h2 class="init-center init-padding-64"><span class="init-tag init-wide">A blog post header</span>
+                        </h2>
+                        <p>Some blog message ...</p>
+                    </div>
                 </div>
+
             </div>
-        </div>
 
-    </div>
-
-    <footer class="init-center init-light-grey init-padding-48 init-large">
-        <p>Powered by <a rel="noopener" href="https://www.initschools.com/initcss/default.asp" title="init.CSS" target="_blank"
-                class="init-hover-text-green">www.cafe-php.com</a></p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+            <footer class="init-center init-light-grey init-padding-48 init-large">
+                <p>Powered by <a rel="noopener" href="https://www.initschools.com/initcss/default.asp" title="init.CSS"
+                        target="_blank" class="init-hover-text-green">www.cafe-php.com</a></p>
+            </footer>
+            <script src=""></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+                crossorigin="anonymous"></script>
 </body>
 
 </html>
