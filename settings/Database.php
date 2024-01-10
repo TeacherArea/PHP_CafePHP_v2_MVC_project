@@ -4,13 +4,13 @@ class Database
 {
     private $conn = null;
 
-    public function getConnection()
+    public function DB_Open()
     {
         include 'db_credentials.php';
 
         if ($this->conn == null) {
             try {
-                $this->conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
+                $this->conn = new PDO("mysql:host=$DB_HOST;dbname=$DB_NAME", $DB_USER, $DB_PASS);
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $this->conn->exec("set names utf8");
             } catch (PDOException $exception) {
@@ -20,7 +20,7 @@ class Database
         return $this->conn;
     }
 
-    public function closeConnection()
+    public function DB_Close()
     {
         $this->conn = null;
     }

@@ -9,7 +9,7 @@ class ShopController
         $this->view = $view;
     }
 
-    public function index()
+    public function index($userData = null, $productsData = null)
     {
         $this->view->render('header');
         $this->view->render('shop');
