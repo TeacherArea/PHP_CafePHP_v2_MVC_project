@@ -16,6 +16,7 @@
             <div class="init-content" style="max-width:700px">
 
                 <?php /* if (!$this->auth->isLoggedIn()) : */ ?>
+                    <?php include 'register-user.php'; ?>
                     <?php include 'login-form.php'; ?>
                 <?php /*  endif; */ ?>
 

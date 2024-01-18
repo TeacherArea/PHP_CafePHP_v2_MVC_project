@@ -9,7 +9,7 @@ class ErrorController
         $this->view = $view;
     }
 
-    public function index()
+    public function show()
     {
         http_response_code(404);
         $this->view->render('header');

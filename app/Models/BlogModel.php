@@ -13,19 +13,38 @@ class BlogModel
     {
         return "Hello from BlogModel getBlogPost()";
     }
+
+    public function registerUser($firstname, $lastname, $password, $email, $website = null)
+    {
+        $conn = $this->db->DB_Open();
+
+        $sql = "INSERT INTO users(user_firstname, user_lastname, user_password, user_email, user_website) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+        $stmt->bindParam(1, $firstname);
+        $stmt->bindParam(2, $lastname);
+        $stmt->bindParam(3, $passwordHash);
+        $stmt->bindParam(4, $email);
+        $stmt->bindParam(5, $website);
+
+        if ($stmt->execute()) {
+            $this->db->DB_Close();
+            return true;
+        } else {
+            $this->db->DB_Close();
+            return false;
+        }
+    }
+    public function getUserByEmail($email)
+    {
+        $conn = $this->db->DB_Open();
+        if ($conn) {
+            $stmt = $conn->prepare("SELECT * FROM users WHERE user_email = ?");
+            $stmt->execute([$email]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+        return null;
+    }
 }
-
-
-        /* $conn = $this->db->DB_Open();
-
-        $sql = "SELECT *
-                FROM articles
-                INNER JOIN users
-                ON articles.userID = users.userID
-                ORDER BY pubdate DESC
-                LIMIT 0,5";
-        $stmt = $conn->prepare($sql);           // prepare() förbereder för utförandet
-        $stmt->execute();                             // utför själva förfrågan mot databasen
-        $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);  // fetchAll() hämtar ut resultatet till en array
-        $this->db->DB_Close();
-        */

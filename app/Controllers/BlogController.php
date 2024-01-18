@@ -3,8 +3,7 @@ require_once __DIR__ . '/../Models/BlogModel.php';
 class BlogController
 {
     private $view;
-    private $model; // För att interagera med databasen
-    private $auth;  // En tjänst för att hantera autentisering
+    private $model;
 
     public function __construct($view)
     {
@@ -12,42 +11,80 @@ class BlogController
         $this->model = new BlogModel();
     }
 
-    public function index($errorMessage = '')
+    public function show($message = '')
     {
         $blogPosts = $this->model->getBlogPosts();
         $this->view->render('header');
-        $this->view->render('blog', ['blogPosts' => $blogPosts, 'errorMessage' => $errorMessage]);
+        $this->view->render('blog', ['blogPosts' => $blogPosts, 'message' => $message]);
         $this->view->render('footer');
+    }
+
+    public function registerNewUser()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $firstname = $_POST['user-firstname'];
+            $lastname = $_POST['user-lastname'];
+            $password = $_POST['user-password'];
+            $email = $_POST['user-mail'];
+            $website = $_POST['user-webb'] ?? null;
+
+            $userUnique = $this->isUserNameUnique($email);
+
+            if ($userUnique) {
+                $wasSuccessful = $this->model->registerUser($firstname, $lastname, $password, $email, $website);
+
+                if ($wasSuccessful) {
+                    $message = "Registration successful. You can now log in.";
+                } else {
+                    $message = "Registration failed. Please try again.";
+                }
+
+                $this->show($message);
+            } else {
+                $message = "The username is taken. Please try again.";
+                $this->show($message);
+                return;
+            }
+        } else {
+            $this->show();
+        }
     }
 
     public function login()
     {
+        $message = '';
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['log-in'])) {
             $userEmail = $_POST['user-mail'] ?? '';
             $password = $_POST['user-password'] ?? '';
 
-
             $isAuthenticated = $this->authenticateUser($userEmail, $password);
-
 
             if ($isAuthenticated) {
                 $_SESSION['user'] = $userEmail;
-                $errorMessage = 'Welcome! ' . $userEmail . ' is now logged in';
-                // Omdirigera användaren till en annan sida eller gör något annat.
+                $message = 'Welcome! ' . htmlspecialchars($userEmail) . ' is now logged in';
             } else {
-                // Autentisering misslyckades.
-                $errorMessage = 'Invalid username or password.';
+                $message = 'Invalid username or password.';
             }
         }
-        $this->index($errorMessage);
+        $this->show($message);
     }
 
     private function authenticateUser($email, $password)
     {
-        // Kontroll av användarnamn och lösenord mot databasen
-        // Returnera true om autentiseringen lyckas, annars false.
-        return true;
+        $user = $this->model->getUserByEmail($email);
+
+        if ($user && password_verify($password, $user['user_password'])) {
+            return true;
+        }
+        return false;
     }
+
+    private function isUserNameUnique($email)
+    {
+        $user = $this->model->getUserByEmail($email);
+        return !$user;
+    }
+    
 
     /*
     public function createArticle()
