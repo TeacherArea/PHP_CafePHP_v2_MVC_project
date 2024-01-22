@@ -3,15 +3,20 @@ require_once __DIR__ . '/../../settings/Database.php';
 class BlogModel
 {
     private $db;
+    private $data;
 
     public function __construct()
     {
         $this->db = new Database();
     }
 
-    public function getBlogPosts()
+    public function getBlogPostsAndUsers()
     {
-        return "Hello from BlogModel getBlogPost()";
+        $data = [
+            'loggedInUsers' => $loggedInUsers, // En array av inloggade användare
+            'blogPosts' => $blogPosts         // En array av blogginlägg
+        ];
+       
     }
 
     public function registerUser($firstname, $lastname, $password, $email, $website = null)
@@ -38,6 +43,17 @@ class BlogModel
         }
     }
     public function getUserByEmail($email)
+    {
+        $conn = $this->db->DB_Open();
+        if ($conn) {
+            $stmt = $conn->prepare("SELECT * FROM users WHERE user_email = ?");
+            $stmt->execute([$email]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+        return null;
+    }
+
+    public function getUserByUsername($email)
     {
         $conn = $this->db->DB_Open();
         if ($conn) {

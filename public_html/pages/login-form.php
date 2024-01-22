@@ -3,8 +3,7 @@
 
     <form action="index.php?page=blog" method="post">
         <input type="hidden" name="action" value="login">
-        <p><input class="init-input init-padding-16 init-border" aria-label="Sign in Username (email)" type="email" placeholder="Username (email)" required name="user-mail"
-        value="<?php echo htmlspecialchars($storedUsername); ?>"></p>
+        <p><input class="init-input init-padding-16 init-border" aria-label="Sign in Username (email)" type="email" placeholder="Username (email)" required name="user-mail"></p>
         <p><input class="init-input init-padding-16 init-border" type="password" placeholder="Password" aria-label="Sign in password" name="user-password"></p>
         <p><button class="init-button init-black" type="submit" name="log-in">SIGN IN</button></p>
     </form>

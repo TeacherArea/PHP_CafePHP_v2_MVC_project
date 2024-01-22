@@ -1,18 +1,15 @@
 <?php
-
+require_once __DIR__ . '/../../settings/Database.php';
 class User {
     private $db;
 
     public function __construct() {
         $database = new Database();
-        $this->db = $database->getConnection();
     }
 
     private function getUserData() {
+        $conn = $this->db->DB_Open();
         // Logik för att hämta data från databasen
-        // Använd $this->db för att interagera med databasen
-        // Returnerar data eller null om inget finns
-    }
 
-    // andra metoder ...
+    }
 }

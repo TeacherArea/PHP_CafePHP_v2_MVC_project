@@ -1,21 +1,9 @@
 <?php
 
 session_start([
-    'cookie_httponly' => true,
+    'cookie_httponly' => true
     //'cookie_secure' => true // Endast vid HTTPS
 ]);
-
-// För att låta användaren se sitt användarnamn vid inloggning i en minut innan det tas bort ...
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $_SESSION['user-mail'] = $_POST['user-mail'];
-    $_SESSION['user-mail-time'] = time();
-}
-
-// ... och när formuläret visas i login-form.php kontrolleras om 60 sekunder gått
-$storedUsername = '';
-if (isset($_SESSION['user-mail']) && time() - $_SESSION['user-mail-time'] < 60) {
-    $storedUsername = $_SESSION['user-mail'];
-}
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);

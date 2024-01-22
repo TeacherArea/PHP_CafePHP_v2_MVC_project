@@ -15,10 +15,10 @@
         <div class="init-container" id="where" style="padding-bottom:32px;">
             <div class="init-content" style="max-width:700px">
 
-                <?php /* if (!$this->auth->isLoggedIn()) : */ ?>
+                <?php if (!$this->auth->isLoggedIn()) : ?>
                     <?php include 'register-user.php'; ?>
                     <?php include 'login-form.php'; ?>
-                <?php /*  endif; */ ?>
+                <?php endif; ?>
 
                 <section id="post-articles">
                     <h2 class="init-center init-padding-48">
