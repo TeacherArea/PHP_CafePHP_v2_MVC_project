@@ -15,7 +15,7 @@
         <div class="init-container" id="where" style="padding-bottom:32px;">
             <div class="init-content" style="max-width:700px">
 
-                <?php if (empty($_SESSION['user'])) : ?>
+                <?php if (!$isLoggedIn) : ?>
                     <?php include 'register-user.php'; ?>
                     <?php include 'login-form.php'; ?>
                 <?php endif; ?>
@@ -31,15 +31,20 @@
                         <p><button class="init-button init-black" type="submit">POST</button></p>
                     </form>
                 </section>
-                <section id="view-articles-comments">
-                    <div class="init-container" id="about">
-                        <div class="init-content">
-                            <h2 class="init-center init-padding-64"><span class="init-tag init-wide">A blog post header</span>
-                            </h2>
-                            <p><?php echo $blogPosts; ?></p>
+                <?php foreach ($blogPosts as $post) : ?>
+                    <section id="view-articles-comments">
+                        <div class="init-container" id="about">
+                            <div class="init-content">
+                                <h2 class="init-center init-padding-64"><span class="init-tag init-wide"><?= htmlspecialchars($post['article_title']) ?></span></h2>
+                                <p><?= nl2br(htmlspecialchars($post['article_text'])) ?></p>
+                                <p>
+                                    Författare:
+                                    <?= htmlspecialchars($post['user_username']) ?>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

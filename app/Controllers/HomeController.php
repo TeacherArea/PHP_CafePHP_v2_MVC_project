@@ -9,7 +9,7 @@ class HomeController
         $this->view = $view;
     }
 
-    public function show()
+    public function showStartPage()
     {
         $this->view->render('header');
         $this->view->render('home');

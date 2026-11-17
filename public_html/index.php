@@ -1,47 +1,74 @@
 <?php
 
 session_start([
-    'cookie_httponly' => true
-    //'cookie_secure' => true // Endast vid HTTPS
+    'cookie_httponly' => true,
+    'cookie_secure' => !empty($_SERVER['HTTPS'])
+        && $_SERVER['HTTPS'] !== 'off',
+    'cookie_samesite' => 'Lax'
 ]);
 
-ini_set('display_errors', 1);
+// Endast under utveckling.
+ini_set('display_errors', '1');
 error_reporting(E_ALL);
 
-spl_autoload_register(function ($class_name) {
-    $file = __DIR__ . '/../app/Controllers/' . $class_name . '.php';
-    if (!file_exists($file)) {
-        $file = __DIR__ . '/../app/Views/' . $class_name . '.php';
-    }
-    if (file_exists($file)) {
-        require_once $file;
+// Ladda controllers och View automatiskt.
+spl_autoload_register(function ($className) {
+    foreach (['Controllers', 'Views'] as $directory) {
+        $file = __DIR__ . "/../app/{$directory}/{$className}.php";
+
+        if (is_file($file)) {
+            require_once $file;
+            return;
+        }
     }
 });
 
-$view = new View();
-$page = isset($_GET['page']) ? $_GET['page'] : 'show';
-$method = isset($_GET['method']) ? $_GET['method'] : 'show';
-$controllerClassName = ucfirst(strtolower($page)) . 'Controller';
+// Tillåtna routes, uppdelade efter HTTP-metod.
+$routes = [
+    'GET' => [
+        'home/show' => [HomeController::class, 'showStart'],
+        'blog/show' => [BlogController::class, 'showBlog'],
+        'shop/show' => [ShopController::class, 'showUser'],
+    ],
+    'POST' => [
+        'user/register' => [UserController::class, 'registerNewUser'],
+        'user/login' => [UserController::class, 'login'],
+    ],
+];
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
-    $controller = new $controllerClassName($view);
+// Läs URL-parametrarna.
+$page = $_GET['page'] ?? 'home';
+$method = $_GET['method'] ?? 'show';
 
-    if ($_POST['action'] === 'register') {
-        $controller->registerNewUser();
-    } elseif ($_POST['action'] === 'login') {
-        $controller->login();
-    }
-} elseif (class_exists($controllerClassName)) {
-    $controller = new $controllerClassName($view);
-    if (method_exists($controller, $method)) {
-        $controller->$method();
-    } else {
-        header("HTTP/1.0 404 Not Found");
-        $errorController = new ErrorController($view);
-        $errorController->show();
-    }
-} else {
-    header("HTTP/1.0 404 Not Found");
-    $errorController = new ErrorController($view);
+$httpMethod = $_SERVER['REQUEST_METHOD'];
+$route = $page . '/' . $method;
+
+/*
+echo '<pre>';
+var_dump([
+    'httpMethod' => $httpMethod,
+    'page' => $page,
+    'method' => $method,
+    'route' => $route
+]);
+echo '</pre>';
+exit;
+*/
+
+// Kontroll av att routen är tillåten.
+if (!isset($routes[$httpMethod][$route])) {
+    http_response_code(404);
+
+    $errorController = new ErrorController(new View());
     $errorController->show();
+    exit;
 }
+
+// Hämta controller och metod från route-tabellen.
+[$controllerClass, $controllerMethod] = $routes[$httpMethod][$route];
+
+$view = new View();
+$controller = new $controllerClass($view);
+
+// Kör vald controller-metod.
+$controller->$controllerMethod();
