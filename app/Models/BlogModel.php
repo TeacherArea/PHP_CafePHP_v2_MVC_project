@@ -7,19 +7,25 @@ class BlogModel
 
     public function __construct()
     {
-        $this->db = new Database();
+        $database = new Database();
+        $this->db = $database->DB_Open();
     }
 
     public function getBlogPostsAndUsers()
     {
-        $data = [
-            'loggedInUsers' => $loggedInUsers, // En array av inloggade användare
-            'blogPosts' => $blogPosts         // En array av blogginlägg
-        ];
-       
+        $sql = "SELECT articles.*, users.user_username
+                FROM articles INNER JOIN users
+                ON articles.user_id = users.user_id";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function registerUser($firstname, $lastname, $password, $email, $website = null)
+
+
+    public function registerUser($firstname, $lastname, $password, $email, $website)
     {
         $conn = $this->db->DB_Open();
 

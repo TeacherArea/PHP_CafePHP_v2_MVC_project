@@ -13,7 +13,7 @@ class BlogController
 
     public function show($message = '')
     {
-        $blogPosts = $this->model->getBlogPosts();
+        $blogPosts = $this->model->getBlogPostsAndUsers();
         $this->view->render('header');
         $this->view->render('blog', ['blogPosts' => $blogPosts, 'message' => $message]);
         $this->view->render('footer');

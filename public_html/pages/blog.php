@@ -15,7 +15,7 @@
         <div class="init-container" id="where" style="padding-bottom:32px;">
             <div class="init-content" style="max-width:700px">
 
-                <?php if (!$this->auth->isLoggedIn()) : ?>
+                <?php if (empty($_SESSION['user'])) : ?>
                     <?php include 'register-user.php'; ?>
                     <?php include 'login-form.php'; ?>
                 <?php endif; ?>
